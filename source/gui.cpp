@@ -1915,6 +1915,14 @@ void reshade::runtime::draw_overlay_technique_editor()
 			const bool is_not_top = index > 0;
 			const bool is_not_bottom = index < _techniques.size() - 1;
 			const float button_width = ImGui::CalcItemWidth();
+			
+			if (ImGui::Button("Delete Toggle Key", ImVec2(button_width, 0)))
+			{
+				technique.toggle_key_data[0] = 0;
+				technique.toggle_key_data[1] = 0;
+				technique.toggle_key_data[2] = 0;
+				technique.toggle_key_data[3] = 0;
+			}
 
 			if (is_not_top && ImGui::Button("Move up", ImVec2(button_width, 0)))
 			{
